@@ -1,0 +1,13 @@
+/Users/lzhou/git/github/uclresearch/src/main/java/springboot/config/SwaggerConfig.java
+/Users/lzhou/git/github/uclresearch/src/main/java/springboot/SpringBootWebApplication.java
+/Users/lzhou/git/github/uclresearch/src/main/java/springboot/services/CRUDService.java
+/Users/lzhou/git/github/uclresearch/src/main/java/springboot/controllers/ParticipantController.java
+/Users/lzhou/git/github/uclresearch/src/main/java/springboot/controllers/IndexController.java
+/Users/lzhou/git/github/uclresearch/src/main/java/springboot/services/ParticipantService.java
+/Users/lzhou/git/github/uclresearch/src/main/java/springboot/bootstrap/SpringJpaBootstrap.java
+/Users/lzhou/git/github/uclresearch/src/main/java/springboot/config/WebConfig.java
+/Users/lzhou/git/github/uclresearch/src/main/java/springboot/domain/Participant.java
+/Users/lzhou/git/github/uclresearch/src/main/java/springboot/config/SpringSecConfig.java
+/Users/lzhou/git/github/uclresearch/src/main/java/springboot/services/ParticipantServiceImpl.java
+/Users/lzhou/git/github/uclresearch/src/main/java/springboot/repositories/ParticipantRepository.java
+/Users/lzhou/git/github/uclresearch/src/main/java/springboot/controllers/VerifyController.java

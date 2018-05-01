@@ -1,9 +1,7 @@
-springboot/config/SpringSecConfig.class
 springboot/bootstrap/SpringJpaBootstrap.class
 springboot/repositories/ParticipantRepository.class
-springboot/domain/Participant.class
-springboot/config/WebConfig.class
-springboot/controllers/VerifyController.class
 springboot/services/ParticipantService.class
-springboot/services/ParticipantServiceImpl.class
 springboot/controllers/ParticipantController.class
+springboot/config/SpringSecConfig.class
+springboot/domain/Participant.class
+springboot/services/ParticipantServiceImpl.class

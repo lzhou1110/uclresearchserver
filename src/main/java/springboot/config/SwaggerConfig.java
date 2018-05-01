@@ -21,11 +21,11 @@ public class SwaggerConfig {
 
     private ApiInfo metaData() {
         ApiInfo apiInfo = new ApiInfo(
-                "信息传播项目后台服务器API",
+                "Hybrid spreading backend API",
                 "UCL Research",
                 "1.0",
                 "Terms of service",
-                new Contact("Liyi Zhou", "", "lzhou1110@gmail.com"),
+                new Contact("Liyi Zhou", "", "liyi.zhou.17@ucl.ac.uk"),
                 "Apache License Version 2.0",
                 "https://www.apache.org/licenses/LICENSE-2.0");
         return apiInfo;

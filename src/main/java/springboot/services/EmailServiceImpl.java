@@ -1,31 +1,41 @@
 package springboot.services;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.io.File;
 
-@Component
+@Service
 public class EmailServiceImpl implements EmailService {
 
-    @Autowired
-    public JavaMailSender javaMailSender;
+    private static Logger log = LoggerFactory.getLogger(EmailServiceImpl.class);
 
-    public void sendSimpleMessage(String from, String to, String subject, String text) {
+    @Autowired
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
+    // This was configured in properties file
+    private JavaMailSender javaMailSender;
+
+    @Value("${setting.email.address}")
+    private String from;
+
+    public void sendSimpleMessage(String to, String subject, String text) {
         try {
             SimpleMailMessage message = new SimpleMailMessage();
             message.setFrom(from);
             message.setTo(to);
             message.setSubject(subject);
             message.setText(text);
-
             javaMailSender.send(message);
         } catch (MailException exception) {
             exception.printStackTrace();
@@ -33,13 +43,12 @@ public class EmailServiceImpl implements EmailService {
     }
 
     @Override
-    public void sendSimpleMessageUsingTemplate(String from,
-                                               String to,
+    public void sendSimpleMessageUsingTemplate(String to,
                                                String subject,
                                                SimpleMailMessage template,
                                                String... templateArgs) {
         String text = String.format(template.getText(), templateArgs);
-        sendSimpleMessage(from, to, subject, text);
+        sendSimpleMessage(to, subject, text);
     }
 
     @Override

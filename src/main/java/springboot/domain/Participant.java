@@ -24,13 +24,16 @@ public class Participant {
     private Date updated;
     @ApiModelProperty(notes = "Random String")
     private String secret;
-    @ApiModelProperty(notes = "The email addresses of friends")
-    private String[] friendEmails;
+    @ApiModelProperty(notes = "Invited by id")
+    private Integer invitedById;
+    @ApiModelProperty(notes = "Email verified")
+    private Boolean emailVerified;
 
     @PrePersist
     protected void onCreate() {
         created = new Date();
         secret = RandomStringGenerator.generateString();
+        emailVerified = Boolean.FALSE;
     }
 
     @PreUpdate
@@ -86,11 +89,19 @@ public class Participant {
         this.secret = secret;
     }
 
-    public String[] getFriendEmails() {
-        return friendEmails;
+    public Integer getInvitedById() {
+        return invitedById;
     }
 
-    public void setFriendEmails(String[] friendEmails) {
-        this.friendEmails = friendEmails;
+    public void setInvitedById(Integer invitedById) {
+        this.invitedById = invitedById;
+    }
+
+    public Boolean getEmailVerified() {
+        return emailVerified;
+    }
+
+    public void setEmailVerified(Boolean emailVerified) {
+        this.emailVerified = emailVerified;
     }
 }

@@ -15,7 +15,6 @@ public class SpringJpaBootstrap implements ApplicationListener<ContextRefreshedE
     @Autowired
     private ParticipantRepository participantRepository;
 
-
     private Logger log = Logger.getLogger(SpringJpaBootstrap.class);
 
     @Override
@@ -24,16 +23,31 @@ public class SpringJpaBootstrap implements ApplicationListener<ContextRefreshedE
     }
 
     private void loadProducts() {
-        Participant participant1 = new Participant();
-        participant1.setFriendEmails(new String[] {"friend1@email.com", "friend2@email.com"});
-        participant1.setEmail("participant1@email.com");
-        participantRepository.save(participant1);
-        log.info(String.format("Saved participant with id {}", participant1.getId()));
+        Participant experiment1 = new Participant();
+        experiment1.setEmail("experiment1");
 
-        Participant participant2 = new Participant();
-        participant2.setFriendEmails(new String[] {"friend3@email.com", "friend4@email.com"});
-        participant2.setEmail("email@gmail.com");
-        participantRepository.save(participant2);
-        log.info(String.format("Saved participant with id {}", participant2.getId()));
+        participantRepository.save(experiment1);
+        Participant experiment2 = new Participant();
+        experiment2.setEmail("experiment2");
+
+        participantRepository.save(experiment2);
+        Participant experiment3 = new Participant();
+        experiment3.setEmail("experiment3");
+        participantRepository.save(experiment3);
+
+        experiment1 = participantRepository.findOneByEmail("experiment1");
+        experiment1.setSecret("Secret1");
+        experiment1.setEmailVerified(Boolean.TRUE);
+        participantRepository.save(experiment1);
+
+        experiment2 = participantRepository.findOneByEmail("experiment2");
+        experiment2.setSecret("Secret2");
+        experiment2.setEmailVerified(Boolean.TRUE);
+        participantRepository.save(experiment2);
+
+        experiment3 = participantRepository.findOneByEmail("experiment3");
+        experiment3.setSecret("Secret3");
+        experiment3.setEmailVerified(Boolean.TRUE);
+        participantRepository.save(experiment3);
     }
 }

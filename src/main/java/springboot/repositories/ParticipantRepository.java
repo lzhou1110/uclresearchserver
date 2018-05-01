@@ -7,6 +7,10 @@ import springboot.domain.Participant;
 import java.util.List;
 
 @RepositoryRestResource
-public interface ParticipantRepository extends CrudRepository<Participant, Integer>{
+public interface ParticipantRepository extends CrudRepository<Participant, Integer> {
     Participant findOneByEmail(String email);
+    Participant findOneByIdAndEmail(Integer id, String email);
+    List<Participant> findByInvitedById(Integer id);
+    List<Participant> findByInvitedByIdAndEmailIsNull(Integer id);
+    long countParticipantsByInvitedByIdAndEmailIsNotNull(Integer id);
 }
